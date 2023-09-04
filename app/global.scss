@@ -1,0 +1,12 @@
+img,
+svg,
+video {
+    max-width: 100%;
+    display: block;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
