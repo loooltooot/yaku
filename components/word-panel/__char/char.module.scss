@@ -1,8 +1,8 @@
 .char {
     background-color: black;
-    width: 2.6vw;
-    height: 2.6vw;
-    border-radius: .52vw;
+    width: 49.92px;
+    height: 49.92px;
+    border-radius: 9.98px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,5 +11,28 @@
         color: white;
         width: fit-content;
         font-size: 1.5em;
+    }
+
+    @keyframes flip {
+        from {
+            background-color: var(--primary-color);
+            transform: rotate3d(0);
+        }
+
+        to {
+            background-color: transparent;
+            transform: rotate3d(1, 0, 0, 180deg);
+        }
+    }
+
+    &.visible {
+        background: none;
+        animation: flip .5s ease forwards alternate 1;
+
+        span {
+            color: var(--primary-color);
+            font-weight: 700;
+            transform: rotate3d(1, 0, 0, 180deg);
+        }
     }
 }

@@ -9,7 +9,7 @@ export default function Char({ char, isVisible }: iChar) {
     isVisible = isVisible ?? false
 
     return (
-        <div className={styles.char}>
+        <div className={styles.char + " " + (isVisible ? styles.visible : "")}>
             <span>{isVisible && char}</span>
         </div>
     )

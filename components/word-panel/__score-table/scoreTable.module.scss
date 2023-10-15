@@ -1,15 +1,15 @@
 .table {
     height: fit-content;
     display: flex;
-    column-gap: .5vw;
+    column-gap: 9.6px;
     align-items: center;
     position: absolute;
-    right: 15vw;
-    top: 1.75vw;
+    right: 249.6px;
+    top: 33.6px;
 
     .score {
-        border-radius: .4vw;
-        padding: .3vw 1.5vw;
+        border-radius: 7.68px;
+        padding: 5.76px 28.8px;
         background-color: var(--second-color);
         position: relative;
         overflow: clip;
@@ -18,10 +18,10 @@
             content: "";
             position: absolute;
             background: url("/draw.png") no-repeat center / cover;
-            left: -.7vw;
-            bottom: -0.7vw;
-            width: 2vw;
-            height: 2vw;
+            left: -13.44px;
+            bottom: -13.44px;
+            width: 38.4px;
+            height: 38.4px;
         }
     }
 
@@ -30,8 +30,8 @@
 
         &::after {
             background-image: url('/win.gif');
-            bottom: -.3vw;
-            left: -.3vw;
+            bottom: -5.76px;
+            left: -5.76px;
         }
     }
 

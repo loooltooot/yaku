@@ -5,6 +5,7 @@ import { getRandomInt } from '@/scripts/getRandomInt'
 import { usePointsStore } from '@/stores/pointsStore'
 import { useState } from 'react'
 import ScoreTable from '../__score-table/scoreTable'
+import FramerNum from '@/components/framerNum/framerNum'
 
 export default function Counter() {
     const points = usePointsStore((state: any) => state.points)
@@ -27,7 +28,11 @@ export default function Counter() {
                 </svg>
             </button>
             <div className={styles.pointsAndPlayers}>
-                <span className={styles.points}>{points === 0 ? "Вращайте якубан" : points}</span>
+                {points === 0 ? (
+                    <span className={styles.points}>Вращайте якубан</span>
+                ) : (
+                    <span className={styles.points}><FramerNum from={0} to={points} /></span>
+                )}
                 <div className={styles.player + " " + (currentPlayer ? styles.secondPlayer : '')}>
                     <span>Игрок 1</span>
                     <span>Игрок 2</span>

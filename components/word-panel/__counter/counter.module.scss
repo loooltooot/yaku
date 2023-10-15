@@ -1,22 +1,47 @@
 .counter {
     display: flex;
-    column-gap: 1vw;
-    margin-top: .52vw;
+    column-gap: 19.2px;
+    margin-top: 9.98px;
     position: relative;
 
     .button {
         background-color: var(--primary-color);
         border: none;
         color: #fff;
-        border-radius: .8vw;
-        padding: .5vw .8vw;
+        border-radius: 15.36px;
+        padding: 9.6px 15.36px;
         display: flex;
         justify-content: center;
         width: fit-content;
         cursor: pointer;
+        position: relative;
 
         &:hover {
             background-color: var(--primary-shade-color);
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(60deg);
+            }
+        }
+
+        &:not(:disabled)::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            top: 0;
+            filter: blur(15.36px);
+            opacity: .7;
+            z-index: -1;
+            animation: spin infinite forwards 3s ease alternate;
         }
     }
 
@@ -30,12 +55,12 @@
         }
 
         .player {
-            margin-top: .5vw;
+            margin-top: 9.6px;
             display: flex;
-            column-gap: .8vw;
+            column-gap: 15.36px;
             background-color: var(--second-color);
-            border-radius: .4vw;
-            padding: .3vw .8vw;
+            border-radius: 7.68px;
+            padding: 5.76px 15.36px;
             position: relative;
             overflow: clip;
             width: fit-content;
@@ -48,7 +73,7 @@
                 position: absolute;
                 left: 0;
                 top: 0;
-                border-radius: .4vw;
+                border-radius: 7.68px;
                 transition: .3s ease;
             }
 
