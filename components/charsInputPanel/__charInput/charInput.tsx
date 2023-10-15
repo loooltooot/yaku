@@ -25,6 +25,7 @@ export default function CharInput({ char, isClicked }: iCharInput) {
     const playersPoints = { ...usePointsStore((state: any) => state.playersPoints) }
     const setChars = useWordStore((state: any) => state.setChars)
     const wipeDisabledChars = useWordStore((state: any) => state.wipeDisabledChars)
+    const names = [...usePointsStore((state: any) => state.playersNames)]
 
     return (
         <button className={styles.charInput + (isClicked ? " " + styles.clicked : "")} onClick={() => {
@@ -39,21 +40,23 @@ export default function CharInput({ char, isClicked }: iCharInput) {
                 })
 
                 setCharVisible(chars)
-                setPlayersPoints(playersPoints)
 
                 // winning condition
                 if (chars.every((c) => c.isVisible)) {
+                    // x2 for last char
+                    playersPoints[currentPlayer] += points
+
                     let winner
 
                     switch (true) {
                         case playersPoints[0] > playersPoints[1]:
-                            winner = { name: "Игрок 1", points: playersPoints[0] }
+                            winner = { name: names[0], points: playersPoints[0] }
                             break
                         case playersPoints[0] === playersPoints[1]:
                             winner = { name: "Ничья", points: playersPoints[0] }
                             break
                         default:
-                            winner = { name: "Игрок 2", points: playersPoints[1] }
+                            winner = { name: names[1], points: playersPoints[1] }
                             break
                     }
 
@@ -72,6 +75,8 @@ export default function CharInput({ char, isClicked }: iCharInput) {
 
                     return
                 }
+
+                setPlayersPoints(playersPoints)
             } else {
                 swapPlayer()
             }

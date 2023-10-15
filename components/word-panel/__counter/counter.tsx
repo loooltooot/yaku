@@ -7,9 +7,19 @@ import { useState } from 'react'
 import ScoreTable from '../__score-table/scoreTable'
 import FramerNum from '@/components/framerNum/framerNum'
 
+import { Ubuntu } from 'next/font/google'
+
+const ubuntu = Ubuntu({
+    weight: ['400', '700'],
+    subsets: ['cyrillic', 'latin'],
+    display: 'swap'
+})
+
 export default function Counter() {
     const points = usePointsStore((state: any) => state.points)
     const setPoints = usePointsStore((state: any) => state.setPoints)
+    const names = [...usePointsStore((state: any) => state.playersNames)]
+    const setPlayersNames = usePointsStore((state: any) => state.setPlayersNames)
     const currentPlayer = usePointsStore((state: any) => state.currentPlayer)
 
     function spinYakuban() {
@@ -34,8 +44,8 @@ export default function Counter() {
                     <span className={styles.points}><FramerNum from={0} to={points} /></span>
                 )}
                 <div className={styles.player + " " + (currentPlayer ? styles.secondPlayer : '')}>
-                    <span>Игрок 1</span>
-                    <span>Игрок 2</span>
+                    <input className={ubuntu.className} type="text" value={names[0]} onChange={(e) => { names[0] = e.target.value; setPlayersNames(names) }} />
+                    <input className={ubuntu.className} type="text" value={names[1]} onChange={(e) => { names[1] = e.target.value; setPlayersNames(names) }} />
                 </div>
             </div>
             <ScoreTable />
