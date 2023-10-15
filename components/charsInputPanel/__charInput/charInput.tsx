@@ -28,6 +28,8 @@ export default function CharInput({ char, isClicked }: iCharInput) {
 
     return (
         <button className={styles.charInput + (isClicked ? " " + styles.clicked : "")} onClick={() => {
+            addDisabledChar(char)
+
             if (word.includes(char)) {
                 chars.forEach(c => {
                     if (c.value === char) {
@@ -39,6 +41,7 @@ export default function CharInput({ char, isClicked }: iCharInput) {
                 setCharVisible(chars)
                 setPlayersPoints(playersPoints)
 
+                // winning condition
                 if (chars.every((c) => c.isVisible)) {
                     let winner
 
@@ -69,9 +72,10 @@ export default function CharInput({ char, isClicked }: iCharInput) {
 
                     return
                 }
+            } else {
+                swapPlayer()
             }
-            addDisabledChar(char)
-            swapPlayer()
+
             wipePoints()
         }}
             disabled={isClicked || points === 0}
