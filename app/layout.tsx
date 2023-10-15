@@ -6,6 +6,7 @@ import Footer from '@/components/footer/footer'
 export const metadata: Metadata = {
     title: 'Yaku',
     description: 'Быстрое поле чудес без Якубовича',
+
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {

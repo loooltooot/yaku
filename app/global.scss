@@ -1,3 +1,11 @@
+:root {
+    --bg-color: #fff;
+    --primary-color: #000;
+    --primary-shade-color: #2c2c2c;
+    --second-color: #f1f1f1;
+    --second-shade-color: #cacaca;
+}
+
 img,
 svg,
 video {
@@ -9,4 +17,28 @@ ul {
     list-style: none;
     padding: 0;
     display: flex;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+* {
+    user-select: none;
+}
+
+.titles {
+    display: block;
+    margin-inline: auto;
+    width: fit-content;
+    margin-top: 10vw;
+    color: var(--second-shade-color);
+}
+
+a {
+    color: var(--primary-color);
 }

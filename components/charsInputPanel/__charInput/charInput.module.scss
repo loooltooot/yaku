@@ -1,1 +1,15 @@
-.clicked {}
+.charInput {
+    background-color: var(--second-color);
+    border: none;
+    padding: .5vw .8vw;
+    cursor: pointer;
+    border-radius: .4vw;
+
+    &:hover {
+        background-color: var(--second-shade-color);
+    }
+}
+
+.clicked {
+    background-color: var(--second-shade-color);
+}

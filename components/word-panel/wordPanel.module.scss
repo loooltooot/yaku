@@ -1,5 +1,14 @@
 .panel {
+    display: flex;
+    flex-direction: column;
+
     ul {
         column-gap: .52vw;
+    }
+
+    .newWord {
+        cursor: pointer;
+        color: var(--second-shade-color);
+        font-size: .8em;
     }
 }

@@ -1,0 +1,45 @@
+.table {
+    height: fit-content;
+    display: flex;
+    column-gap: .5vw;
+    align-items: center;
+    position: absolute;
+    right: 15vw;
+    top: 1.75vw;
+
+    .score {
+        border-radius: .4vw;
+        padding: .3vw 1.5vw;
+        background-color: var(--second-color);
+        position: relative;
+        overflow: clip;
+
+        &::after {
+            content: "";
+            position: absolute;
+            background: url("/draw.png") no-repeat center / cover;
+            left: -.7vw;
+            bottom: -0.7vw;
+            width: 2vw;
+            height: 2vw;
+        }
+    }
+
+    .score.win {
+        background-color: #fd4545;
+
+        &::after {
+            background-image: url('/win.gif');
+            bottom: -.3vw;
+            left: -.3vw;
+        }
+    }
+
+    .score.loose {
+        background-color: #94ebdf;
+
+        &::after {
+            background-image: url('/loose.png');
+        }
+    }
+}

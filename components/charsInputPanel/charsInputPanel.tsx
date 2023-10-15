@@ -12,7 +12,7 @@ export default function CharsInputPanel() {
     const disabledChars: string[] = useWordStore((state: any) => state.disabledChars)
 
     return (
-        <section>
+        <section className={styles.panel}>
             <ul>
                 {chars.map((char, index) => (
                     <li key={index}>

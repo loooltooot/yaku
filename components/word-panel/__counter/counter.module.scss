@@ -1,0 +1,79 @@
+.counter {
+    display: flex;
+    column-gap: 1vw;
+    margin-top: .52vw;
+    position: relative;
+
+    .button {
+        background-color: var(--primary-color);
+        border: none;
+        color: #fff;
+        border-radius: .8vw;
+        padding: .5vw .8vw;
+        display: flex;
+        justify-content: center;
+        width: fit-content;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--primary-shade-color);
+        }
+    }
+
+    .pointsAndPlayers {
+        display: flex;
+        flex-direction: column;
+
+        .points {
+            font-size: 2em;
+            font-weight: 700;
+        }
+
+        .player {
+            margin-top: .5vw;
+            display: flex;
+            column-gap: .8vw;
+            background-color: var(--second-color);
+            border-radius: .4vw;
+            padding: .3vw .8vw;
+            position: relative;
+            overflow: clip;
+            width: fit-content;
+
+            &::before {
+                content: "";
+                background-color: var(--primary-color);
+                width: 53%;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                border-radius: .4vw;
+                transition: .3s ease;
+            }
+
+            span {
+                display: inline-block;
+                z-index: 10;
+            }
+
+            span:nth-child(1) {
+                color: var(--bg-color);
+            }
+
+            &.secondPlayer {
+                span:nth-child(1) {
+                    color: var(--primary-color);
+                }
+
+                span:nth-child(2) {
+                    color: var(--bg-color);
+                }
+
+                &::before {
+                    left: 49%;
+                }
+            }
+        }
+    }
+}
